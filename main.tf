@@ -1,5 +1,11 @@
 provider "aws" {
   region = "us-east-1"
+  backend "s3" {
+    bucket         	   = "lab-demo-state"
+    key              	   = "state/terraform.tfstate"
+    encrypt        	   = true
+  }
+
 }
 
 resource "aws_vpc" "myvpc" {
